@@ -1,10 +1,9 @@
-import Header from "@/components/Header";
-import MainBackground from "@/components/Main-background";
+import MainPage from "@/pages/MainPage";
 
 export default function Home() {
   return (
     <>
-        <MainBackground />
+      <MainPage />
     </>
   );
 }

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Cormorant_Garamond } from "next/font/google";
 
 import logo from "@/public/assets/logo.png"
+import Image from "next/image";
 
 const CormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -19,7 +20,7 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Mobile/iPad Hamburger Icon */}
+     
       <div className="md:hidden absolute top-6 left-6 z-100">
         <button onClick={toggleSidebar} className="text-white p-2">
           {isOpen ? <X size={32} /> : <Menu size={32} />}
@@ -32,6 +33,9 @@ const Navbar = () => {
         } lg:hidden`}
       >
         <div className={`${CormorantGaramond.className} flex flex-col items-center justify-center h-full gap-8 text-white text-3xl`}>
+          <div>
+            <Image src={logo} alt="logo" />
+          </div>
           <Link href="/" onClick={toggleSidebar}>Home</Link>
           <Link href="/Menu" onClick={toggleSidebar}>Menu</Link>
           <Link href="/About" onClick={toggleSidebar}>About</Link>

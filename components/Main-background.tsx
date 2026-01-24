@@ -25,16 +25,16 @@ const MainBackground = () => {
         <div className="absolute flex flex-col z-50 items-center gap-39 top-50">
           <div className="flex flex-col justify-between gap-10">
             <div
-              className={`${CormorantGaramond.className} sm:flex sm:flex-col items-center  justify-center font-bold text-white lg:text-[110px] sm:text-[40px]`}
+              className={`${CormorantGaramond.className} sm:flex sm:flex-col items-center  justify-center font-bold text-white lg:text-[110px] md:text-[60px] sm:text-[50px] text-[30px]`}
             >
-              <span className="text-[30px] md:text-[40px]">Art on a plate</span>
+              <span>Art on a plate</span>
               <span className="leading-25 hidden md:block">soul in every bite</span>
             </div>
             <div className="md:flex flex-col not-last:font-medium lg:text-[20px] sm:text-[16px] hidden text-[#D1D2D0] items-center justify-center">
               <span>"Making your mornings brighter and your afternoons more social."</span>
             </div>
           </div>
-          <Link href="/Menu"
+          <Link href="#Main"
             className={`${CormorantGaramond.className} font-medium text-[24px] h-12.5 flex justify-center items-center text-black bg-white w-62.25 px-3 gap-2.5 rounded-[50px]`}
           >
             <span>Explore Our Menu</span>

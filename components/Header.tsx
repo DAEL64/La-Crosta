@@ -13,7 +13,7 @@ const CormorantGaramond = Cormorant_Garamond({
 const Header = () => {
   return (
     <>
-      <div className="h-fit md:flex md: fixed inset-0 backdrop-blur-sm px-12.5 text-white top-0 z-50 pt-12.5 hidden w-full justify-between items-center">
+      <div className="h-fit md:flex md:absolute inset-0 px-12.5 text-white top-0 z-50 pt-12.5 hidden w-full justify-between items-center">
         <div className="gap-27.5 flex justify-between items-center">
           <div className={`${CormorantGaramond.className} font-bold`}>
             <Link
