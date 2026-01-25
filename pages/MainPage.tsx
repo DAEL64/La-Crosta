@@ -37,8 +37,8 @@ const MainPage = () => {
           {Object.entries(menu).map(([key, items]) => (
             <section key={key} className="w-full">
               <div className="flex justify-center">
-                <div className="w-full pt-20 sm:px-15 flex items-center justify-between">
-                  <span className="text-[50px]">{categoryLabels[key]}</span>
+                <div className="w-full pt-20 px-5 sm:px-15 md:px-30 flex items-center justify-between">
+                  <span className="text-[50px] pb-4">{categoryLabels[key]}</span>
                   <Link
                     href={`/${categoryLabels[key]}`}
                     className="cursor-pointer hover:underline flex items-center gap-1 text-lg"
@@ -49,7 +49,7 @@ const MainPage = () => {
                 </div>
               </div>
 
-              <div className="w-full sm:px-15 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+              <div className="w-full px-5 sm:px-15 md:px-30 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {items.map((item) => (
                   <div
                     className="flex flex-col items-center pb-5 w-full border border-[#D3CCC9]"
@@ -63,7 +63,7 @@ const MainPage = () => {
                       />
                     </div>
                     <div className="flex gap-6.25 w-7/10 flex-col py-5 items-center">
-                      <p className="text-xl text-gray-600">
+                      <p className="text-2xl text-gray-600">
                         ₾{item.price.toFixed(2)}
                       </p>
 

@@ -11,11 +11,23 @@ const CormorantGaramond = Cormorant_Garamond({
 });
 
 const Header = () => {
+  const navigation = [
+    { label: "Home", url: "/" },
+    { label: "Menus", url: "/menus/all" },
+    { label: "Blog", url: "/blog" },
+    { label: "About", url: "/about" },
+    { label: "Contact", url: "/contact" },
+  ];
+
   return (
     <>
-    <Image src={logo} alt="logo" className="absolute md:hidden z-50 top-5 left-5" />
+      <Image
+        src={logo}
+        alt="logo"
+        className="absolute md:hidden z-50 top-5 left-5"
+      />
       <div className="h-fit md:flex relative md:absolute inset-0 px-12.5 text-white top-0 z-50 pt-12.5 hidden w-full justify-between items-center">
-        <div className="gap-27.5 flex justify-between items-center">
+        <div className="gap-15 flex justify-between items-center">
           <div className={`${CormorantGaramond.className} font-bold`}>
             <Link
               href="/"
@@ -27,13 +39,13 @@ const Header = () => {
           </div>
 
           <ul className="text-[16px] gap-7 flex">
-            {["Home", "Menus", "Blog", "About", "Contact"].map((item) => (
-              <li key={item}>
+            {navigation.map((item) => (
+              <li key={item.label}>
                 <Link
-                  href={`/${item}`}
+                  href={item.url}
                   className="relative group py-1 text-white"
                 >
-                  {item}
+                  {item.label}
                   <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>

@@ -21,7 +21,7 @@ const MainBackground = () => {
           priority
           className="z-10 absolute top-0 w-full h-screen object-cover"
         />
-        <div className="absolute flex flex-col z-50 items-center gap-39 top-50">
+        <div className="absolute flex flex-col z-50 items-center gap-20 2xl:gap-39 top-50">
           <div className="flex flex-col justify-between gap-10">
             <div
               className={`${CormorantGaramond.className} sm:flex sm:flex-col items-center justify-center font-bold text-white lg:text-[110px] md:text-[60px] sm:text-[50px] text-[30px]`}
@@ -48,7 +48,7 @@ const MainBackground = () => {
             <ArrowDown className="w-7.5 h-7.5" />
           </Link>
         </div>
-        <div className="absolute z-50  -bottom-12.5">
+        <div className="absolute z-50 -bottom-12.5">
           <Image src={banner} alt="banner" />
         </div>
       </div>
