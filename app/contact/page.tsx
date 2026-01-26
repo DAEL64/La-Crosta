@@ -9,8 +9,8 @@ const ContactPage = () => {
 
   return (
     <div className="w-full px-5 sm:px-15 md:px-30 pt-40">
-      <div className="gap-15  flex w-full items-center">
-        <div className="w-2/4 lg:w-1/3 h-180">
+      <div className="gap-15 flex flex-col lg:flex-row w-full items-center">
+        <div className="w-full lg:w-1/3 h-180">
           <span className="font-semibold text-2xl">Visit Us</span>
           <iframe
             src={mapSrc}
@@ -24,8 +24,8 @@ const ContactPage = () => {
           ></iframe>
         </div>
 
-        <div className="lg:w-2/3 w-2/4 flex flex-col gap-6">
-          <div className="flex gap-10 w-full">
+        <div className="lg:w-2/3 w-full flex flex-col gap-6">
+          <div className="flex gap-3 sm:gap-5 lg:gap-10 w-full">
             <div className="flex flex-col w-1/2">
               <label className="mb-1">First Name</label>
               <input
@@ -53,7 +53,7 @@ const ContactPage = () => {
             />
           </div>
 
-          <div className="flex flex-col w-1/2">
+          <div className="flex flex-col w-full lg:w-1/2">
             <label className="mb-1">Phone Number</label>
             <input
               type="number"
