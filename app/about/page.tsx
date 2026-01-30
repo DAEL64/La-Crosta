@@ -11,7 +11,7 @@ const cormorant = Cormorant_Garamond({
 const AboutPage = () => {
   return (
     <div className={`${cormorant.className} w-full pb-20`}>
-      {/* 1. Hero Section */}
+
       <section className="relative h-[60vh] flex items-center justify-center bg-stone-900">
         <div className="absolute inset-0 opacity-50">
         </div>

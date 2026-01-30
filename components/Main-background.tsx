@@ -1,6 +1,6 @@
 import Image from "next/image";
 import banner from "@/public/assets/banner.png";
-import background from "@/public/assets/mainImage.png";
+import background from "@/public/assets/mainImage.jpg";
 
 import Link from "next/link";
 
