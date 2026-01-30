@@ -3,15 +3,14 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Cormorant_Garamond } from "next/font/google";
 
-// Define the keys to match your menuData.ts structure
 const keyMapping: Record<string, string> = {
   all: "all",
-  pizzas: "pizzas",
-  sides: "fries", 
-  coldDrinks: "cold_drinks",
-  hotDrinks: "coffees",
-  desserts: "desserts",
-  milkshakes: "milkshakes",
+  pizzas: "Pizzas",
+  sides: "Sides",
+  "hot-drinks": "Coffees",
+  "cold-drinks": "Drinks",
+  desserts: "Desserts",
+  milkshakes: "Milkshakes",
 };
 
 const CormorantGaramond = Cormorant_Garamond({
@@ -21,19 +20,19 @@ const CormorantGaramond = Cormorant_Garamond({
 export default async function CategoryPage({
   params,
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }) {
-  const { category } = await params;
+  const resolvedParams = await params;
+  const category = resolvedParams.category;
+
   const { menu } = menuData;
 
-  // 1. Get the correct key for our data
   const dataKey = keyMapping[category];
 
-  // 2. Handle the "All" logic vs specific category
   let displayItems = [];
 
   if (category === "all") {
-    displayItems = Object.values(menu).flat(); // Merges all arrays into one
+    displayItems = Object.values(menu).flat();
   } else if (dataKey && menu[dataKey as keyof typeof menu]) {
     displayItems = menu[dataKey as keyof typeof menu];
   } else {
@@ -43,7 +42,9 @@ export default async function CategoryPage({
   return (
     <div className="w-full px-5 sm:px-15 md:px-30 pb-20">
       `
-      <div className={`${CormorantGaramond.className} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10`}>
+      <div
+        className={`${CormorantGaramond.className} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10`}
+      >
         {displayItems.map((item) => (
           <div
             key={item.id}

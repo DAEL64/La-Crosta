@@ -19,7 +19,7 @@ const MainBackground = () => {
           src={background}
           alt="background image"
           priority
-          className="z-10 absolute top-0 w-full h-screen object-cover"
+          className="z-10 absolute top-0 w-full h-screen object-cover brightness-85"
         />
         <div className="absolute flex flex-col z-50 items-center gap-20 2xl:gap-39 top-50">
           <div className="flex flex-col justify-between gap-10">

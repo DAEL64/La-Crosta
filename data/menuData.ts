@@ -24,7 +24,7 @@ import strawberry_shake from "@/public/assets/milkshakes/strawberry_shake.png";
 
 export const menuData = {
   menu: {
-    pizzas: [
+    Pizzas: [
       {
         id: 1,
         title: "Pizza Margherita",
@@ -50,7 +50,7 @@ export const menuData = {
           "A garden-fresh delight topped with a colorful medley of bell peppers, red onions, mushrooms, and olives for a satisfying, healthy crunch.",
       },
     ],
-    fries: [
+    Sides: [
       {
         id: 4,
         title: "Fries",
@@ -76,7 +76,7 @@ export const menuData = {
           "Our classic crispy fries elevated with a layer of melted cheese and spicy pickled jalapenos for a true flavor explosion.",
       },
     ],
-    coffees: [
+    Coffees: [
       {
         id: 7,
         title: "Espresso",
@@ -102,7 +102,7 @@ export const menuData = {
           "A smooth and creamy favorite made with a double shot of espresso and plenty of steamed milk for a mellow, comforting drink.",
       },
     ],
-    desserts: [
+    Desserts: [
       {
         id: 10,
         title: "Ice Cream",
@@ -128,7 +128,7 @@ export const menuData = {
           "Chewy, home-style cookies packed with large chunks of premium dark chocolate and a hint of sea salt for balance.",
       },
     ],
-    milkshakes: [
+    Milkshakes: [
       {
         id: 13,
         title: "Oreo Milkshake",
@@ -154,7 +154,7 @@ export const menuData = {
           "Our chef's signature creation—a rotating gourmet recipe featuring unique toppings, house-made syrups, and premium garnishes.",
       },
     ],
-    cold_drinks: [
+    Drinks: [
       {
         id: 16,
         title: "Coca-Cola",
