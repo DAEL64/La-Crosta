@@ -19,16 +19,16 @@ const Header = () => {
 
   return (
     <>
-      <div
-        className={`${CormorantGaramond.className} font-bold absolute md:hidden text-white text-2xl flex items-center z-50 top-5 left-5`}
-      >Café</div>
+      <Link
+        href="/"
+        className={`${CormorantGaramond.className} font-bold absolute md:hidden text-white text-2xl flex items-center z-50 top-6 left-5 py-2`}
+      >
+        Café
+      </Link>
       <div className="h-fit md:flex relative md:absolute inset-0 px-12.5 text-white top-0 z-50 pt-10 hidden w-full justify-between items-center">
         <div className="gap-20 flex justify-between items-center">
           <div className={`${CormorantGaramond.className} font-bold`}>
-            <Link
-              href="/"
-              className="text-[36px] transition-all flex gap-4 "
-            >
+            <Link href="/" className="text-[36px] transition-all flex gap-4 ">
               Café
             </Link>
           </div>

@@ -13,13 +13,13 @@ const CormorantGaramond = Cormorant_Garamond({
 const MainPage = () => {
   const { menu } = menuData;
 
-  const categoryLabels: Record<string, { label: string; slug: string }> = {
-    Pizzas: { label: "Pizzas", slug: "pizzas" },
-    Sides: { label: "Sides", slug: "sides" },
-    Hot_Drinks: { label: "Hot Drinks", slug: "hot-drinks" },
-    Cold_Drinks: { label: "Cold Drinks", slug: "cold-drinks" },
-    Desserts: { label: "Desserts", slug: "desserts" },
-    Milkshakes: { label: "Milkshakes", slug: "milkshakes" },
+  const categoryLabels: Record<string, string> = {
+    Pizzas: "Pizzas",
+    Sides: "Sides",
+    Coffees: "Hot Drinks",
+    Drinks: "Cold Drinks",
+    Desserts: "Desserts",
+    Milkshakes: "Milkshakes",
   };
 
   return (
@@ -39,10 +39,10 @@ const MainPage = () => {
               <div className="flex justify-center">
                 <div className="w-full pt-20 px-5 sm:px-15 md:px-30 flex items-center justify-between">
                   <span className="text-[50px] pb-4">
-                    {categoryLabels[key]?.label || key}
+                    {categoryLabels[key]}
                   </span>
                   <Link
-                    href={`/menus/${categoryLabels[key]?.slug || key.toLowerCase()}`}
+                    href="/menus/all"
                     className="cursor-pointer hover:underline flex items-center gap-1 text-lg"
                   >
                     see more

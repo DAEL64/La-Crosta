@@ -5,8 +5,6 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { Cormorant_Garamond } from "next/font/google";
 
-import Image from "next/image";
-
 const CormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["500", "700"],
@@ -19,22 +17,26 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="md:hidden absolute top-6 right-6 z-100">
+      <div className="lg:hidden absolute top-6 right-6 z-100">
         <button onClick={toggleSidebar} className="text-white p-2">
           {isOpen ? <X size={32} /> : <Menu size={32} />}
         </button>
       </div>
 
       <div
-        className={`fixed inset-0 bg-black/90 z-90 transition-transform duration-300 ease-in-out transform ${
+        className={`fixed inset-0 bg-black/93 z-90 transition-transform duration-300 ease-in-out transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } lg:hidden`}
       >
-        <div className={`${CormorantGaramond.className} font-bold text-5xl text-white flex w-full justify-center pt-15`}>
+        <Link
+          onClick={toggleSidebar}
+          href="/"
+          className={`${CormorantGaramond.className} font-bold text-5xl text-white flex w-full justify-center pt-15`}
+        >
           Café
-        </div>
+        </Link>
         <div
-          className={`${CormorantGaramond.className} flex flex-col items-center justify-center h-full gap-8 text-white text-3xl`}
+          className={`${CormorantGaramond.className} flex flex-col items-center pt-30 gap-8 text-white text-3xl`}
         >
           <Link href="/" onClick={toggleSidebar}>
             Home
@@ -44,6 +46,9 @@ const Navbar = () => {
           </Link>
           <Link href="/about" onClick={toggleSidebar}>
             About
+          </Link>
+          <Link href="/book">
+            Book Table
           </Link>
           <Link href="/contact" onClick={toggleSidebar}>
             Contact
