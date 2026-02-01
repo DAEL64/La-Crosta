@@ -21,7 +21,7 @@ const MainBackground = () => {
           priority
           className="z-10 absolute top-0 w-full h-screen object-cover brightness-80"
         />
-        <div className="absolute flex flex-col z-50 items-center gap-39 md:gap-30 top-50">
+        <div className="absolute flex flex-col z-50 items-center gap-25 md:gap-30 top-50">
           <div className="flex flex-col justify-between items-center">
             <div className="flex justify-center items-center text-white w-fit border border-white/20 bg-white/10 p-2 rounded-full">
               <span className="flex items-center gap-2">
@@ -30,7 +30,7 @@ const MainBackground = () => {
               </span>
             </div>
             <div
-              className={`${CormorantGaramond.className} sm:flex sm:flex-col items-center justify-center font-bold text-white lg:text-[110px] md:text-[80px] sm:text-[70px] text-[30px]`}
+              className={`${CormorantGaramond.className} sm:flex sm:flex-col items-center justify-center font-bold text-white lg:text-[110px] md:text-[80px] sm:text-[70px] text-[50px]`}
             >
               <span className="flex justify-center leading-20">Art on a plate</span>
               <span className="hidden md:block">
@@ -38,11 +38,8 @@ const MainBackground = () => {
               </span>
             </div>
             <div className="md:flex flex-col not-last:font-medium lg:text-[20px] sm:text-[16px]  text-[#e6e9e4] items-center justify-center">
-              <span className="hidden text-center justify-center md:block">
+              <span className="block md:hidden pt-5 md:pt-0 text-xl text-center">
                 "Making your mornings brighter and your afternoons more social."
-              </span>
-              <span className="block md:hidden pt-5 md:pt-0 text-xl">
-                "Making your mornings brighter and better."
               </span>
             </div>
           </div>

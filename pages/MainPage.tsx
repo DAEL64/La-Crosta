@@ -1,10 +1,14 @@
 import { menuData } from "@/data/menuData";
 
 import Image from "next/image";
-import { Cormorant_Garamond } from "next/font/google";
-import MainBackground from "@/components/Main-background";
 import Link from "next/link";
+import { Cormorant_Garamond } from "next/font/google";
+
+import MainBackground from "@/components/Main-background";
+
 import { ArrowRight } from "lucide-react";
+
+import Styles from "@/styles/Main.module.css";
 
 const CormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -29,56 +33,159 @@ const MainPage = () => {
         <div
           className={`${CormorantGaramond.className} pt-20 flex flex-col items-center justify-center w-full`}
         >
-          <header className="text-[20px] sm:text-[64px] flex flex-col items-center text-center leading-tight pb-10">
+          <header className="text-[30px] sm:text-[64px] flex flex-col items-center text-center leading-tight pb-10">
             <span>Discover</span>
             <span>Our Dining Menu</span>
           </header>
 
           {Object.entries(menu).map(([key, items]) => (
-            <section key={key} className="w-full">
-              <div className="flex justify-center">
-                <div className="w-full pt-20 px-5 sm:px-15 md:px-30 flex items-center justify-between">
-                  <span className="text-[50px] pb-4">
+            <section key={key} className="w-full mb-20">
+              <div className={`${Styles.sectionHeader} flex justify-center`}>
+                <div className="w-full pt-20 px-5 sm:px-10 md:px-20 lg:px-32 flex items-center justify-between">
+                  <span className="text-[40px] sm:text-[50px] pb-4">
                     {categoryLabels[key]}
                   </span>
                   <Link
                     href="/menus/all"
-                    className="cursor-pointer hover:underline flex items-center gap-1 text-lg"
+                    className="cursor-pointer hover:underline flex items-center gap-1 text-lg group transition-all"
                   >
                     see more
-                    <ArrowRight className="w-4" />
+                    <ArrowRight className="w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
 
-              <div className="w-full px-5 sm:px-15 md:px-30 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                {items.map((item) => (
-                  <div
-                    className="flex flex-col items-center pb-5 w-full border border-[#D3CCC9]"
-                    key={item.id}
-                  >
-                    <div className=" w-full ">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        className="object-contain w-full"
-                      />
-                    </div>
-                    <div className="flex gap-6.25 w-7/10 flex-col py-5 items-center">
-                      <p className="text-3xl text-gray-600">
-                        ₾{item.price.toFixed(2)}
-                      </p>
+              <div className="w-full px-5 sm:px-10 md:px-20 lg:px-32 mx-auto relative">
+                <div className="flex flex-col lg:block relative">
+      
+                  <div className="lg:w-[70%] mb-10 lg:mb-0">
+                    {items.slice(1, 2).map((item, index) => (
+                      <div
+                        className={`${Styles.revealLeft} ${Styles.menuCard} flex flex-col md:flex-row gap-6 p-6 rounded-lg`}
+                        key={item.id}
+                        style={{ animationDelay: `${index * 100}ms` }}
+                      >
+                        <div
+                          className={`${Styles.imageWrapper} md:w-2/5 shrink-0`}
+                        >
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            className={`${Styles.imageZoom} object-cover w-full h-full rounded`}
+                            width={300}
+                            height={300}
+                          />
+                        </div>
+                        <div className="flex flex-col justify-center gap-4 md:w-3/5">
+                          <div className={Styles.priceTag}>
+                            <p className="text-2xl font-medium">
+                              ₾{item.price.toFixed(2)}
+                            </p>
+                          </div>
 
-                      <span className="text-[32px] font-semibold">
-                        {item.title}
-                      </span>
-                      <span className="flex text-center text-lg">
-                        {item.description}
-                      </span>
-                    </div>
-                    <span className="border-b-2 border-b-[#D3CCC9] w-1/3" />
+                          <h3 className="text-[28px] sm:text-[32px] font-semibold">
+                            {item.title}
+                          </h3>
+
+                          <p
+                            className={`${Styles.descriptionText} text-base sm:text-lg text-gray-600 leading-relaxed`}
+                          >
+                            {item.description}
+                          </p>
+
+                          <span
+                            className={`${Styles.dividerLine} border-b-2 border-b-[#E32929]`}
+                          />
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
+
+                  <div className="lg:w-[70%] lg:absolute lg:right-0 pt-10 pb-10 lg:pb-0 z-10">
+                    {items.slice(2, 3).map((item) => (
+                      <div
+                        className={`${Styles.revealRight} ${Styles.menuCard} flex flex-col md:flex-row gap-6 p-6 rounded-lg`}
+                        key={item.id}
+                      >
+                        <div className="flex flex-col justify-center gap-4 md:w-3/5 md:order-1">
+                          <div className={Styles.priceTag}>
+                            <p className="text-2xl font-medium">
+                              ₾{item.price.toFixed(2)}
+                            </p>
+                          </div>
+
+                          <h3 className="text-[28px] sm:text-[32px] font-semibold">
+                            {item.title}
+                          </h3>
+
+                          <p
+                            className={`${Styles.descriptionText} text-base sm:text-lg text-gray-600 leading-relaxed`}
+                          >
+                            {item.description}
+                          </p>
+
+                          <span
+                            className={`${Styles.dividerLine} border-b-2 border-b-[#E32929]`}
+                          />
+                        </div>
+                        <div
+                          className={`${Styles.imageWrapper} md:w-2/5 shrink-0 md:order-2`}
+                        >
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            className={`${Styles.imageZoom} object-cover w-full h-full rounded`}
+                            width={300}
+                            height={300}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="lg:w-[70%] lg:pt-115">
+                    {items.slice(0, 1).map((item, index) => (
+                      <div
+                        className={`${Styles.revealLeft} ${Styles.menuCard} flex flex-col md:flex-row gap-6 p-6 rounded-lg`}
+                        key={item.id}
+                        style={{ animationDelay: `${index * 100}ms` }}
+                      >
+                        <div
+                          className={`${Styles.imageWrapper} md:w-2/5 shrink-0`}
+                        >
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            className={`${Styles.imageZoom} object-cover w-full h-full rounded`}
+                            width={300}
+                            height={300}
+                          />
+                        </div>
+                        <div className="flex flex-col justify-center gap-4 md:w-3/5">
+                          <div className={Styles.priceTag}>
+                            <p className="text-2xl font-medium">
+                              ₾{item.price.toFixed(2)}
+                            </p>
+                          </div>
+
+                          <h3 className="text-[28px] sm:text-[32px] font-semibold">
+                            {item.title}
+                          </h3>
+
+                          <p
+                            className={`${Styles.descriptionText} text-base sm:text-lg text-gray-600 leading-relaxed`}
+                          >
+                            {item.description}
+                          </p>
+
+                          <span
+                            className={`${Styles.dividerLine} border-b-2 border-b-[(#E32929)]`}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </section>
           ))}

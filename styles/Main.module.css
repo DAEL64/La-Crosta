@@ -1,0 +1,177 @@
+@keyframes revealLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-120px) translateY(20px) scale(0.95);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes revealRight {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes borderDraw {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes descriptionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.revealLeft {
+  view-timeline-name: --item-left;
+  view-timeline-axis: block;
+
+  animation: revealLeft ease-out both;
+  animation-timeline: --item-left;
+  animation-range: entry 0% cover 30%;
+}
+
+.revealRight {
+  view-timeline-name: --item-right;
+  view-timeline-axis: block;
+
+  animation: revealRight ease-out both;
+  animation-timeline: --item-right;
+  animation-range: entry 0% cover 30%;
+}
+
+.menuCard {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  border: 2px solid #e8e3e0;
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.menuCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid#E32929;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.menuCard:hover {
+  border-color: linear-gradient(135deg, #E32929 0%, #e5c287 100%);
+  box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.menuCard:hover::before {
+  opacity: 1;
+  animation: borderDraw 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.imageWrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.imageZoom {
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.menuCard:hover .imageZoom {
+  transform: scale(1.06);
+}
+
+.descriptionText {
+  view-timeline-name: --desc-reveal;
+  view-timeline-axis: block;
+
+  animation: descriptionReveal ease-out both;
+  animation-timeline: --desc-reveal;
+  animation-range: entry 10% cover 35%;
+}
+
+.priceTag {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(135deg, #f8f6f4 0%, #ffffff 100%);
+  border: 1px solid #d3ccc9;
+  border-radius: 2rem;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.menuCard:hover .priceTag {
+  background: linear-gradient(135deg, #E32929 0%, #e5c287 100%);
+  color: white;
+  transform: scale(1.02);
+  border: none;
+}
+
+.dividerLine {
+  position: relative;
+  width: 0;
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.menuCard:hover .dividerLine {
+  width: 33.333333%;
+}
+
+@keyframes headerSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sectionHeader {
+  view-timeline-name: --header;
+  view-timeline-axis: block;
+
+  animation: headerSlide ease-out both;
+  animation-timeline: --header;
+  animation-range: entry 0% cover 20%;
+}
+
+.revealLeft:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.revealLeft:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.revealRight:nth-child(3) {
+  animation-delay: 200ms;
+}
