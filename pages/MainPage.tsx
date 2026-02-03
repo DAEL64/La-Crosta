@@ -1,19 +1,21 @@
+"use client";
 import { menuData } from "@/data/menuData";
 import Image from "next/image";
 import Link from "next/link";
 import { Cormorant_Garamond } from "next/font/google";
-import { useTranslations } from "next-intl"; // 1. Import hook
+import { useTranslations } from "next-intl";
 import MainBackground from "@/components/Main-background";
 import { ArrowRight } from "lucide-react";
 import Styles from "@/styles/Main.module.css";
 
-// Updated font to include Georgian subset
 const CormorantGaramond = Cormorant_Garamond({
-  subsets: ["latin"], 
+  subsets: ["latin"],
 });
 
 const MainPage = () => {
-  const t = useTranslations("Menu"); 
+  const t = useTranslations("Menu");
+  const tData = useTranslations("MenuData");
+
   const { menu } = menuData;
 
   return (
@@ -36,7 +38,7 @@ const MainPage = () => {
                     {t(`categories.${key}`)}
                   </span>
                   <Link
-                    href="/menus/all"
+                    href={`/menus/${key.toLowerCase()}`}
                     className="cursor-pointer hover:underline flex items-center gap-1 text-lg group transition-all"
                   >
                     {t("see_more")}
@@ -44,28 +46,28 @@ const MainPage = () => {
                   </Link>
                 </div>
               </div>
-              
-              <div className="relative opacity-30 italic w-full text-[200px] text-gray-300 font-bold">
-                <span className="absolute lg:block hidden -top-50 right-1/10">
-                   {t(`categories.${key}`)}
+
+              <div className="relative opacity-10 italic w-full text-[150px] lg:text-[200px] text-gray-300 font-bold overflow-hidden h-40">
+                <span className="absolute lg:block hidden -top-10 right-1/10 whitespace-nowrap">
+                  {t(`categories.${key}`)}
                 </span>
               </div>
 
               <div className="w-full px-5 sm:px-10 md:px-20 lg:px-32 mx-auto relative">
                 <div className="flex flex-col lg:block relative">
+                  {/* First Item Block */}
                   <div className="lg:w-[70%] mb-10 lg:mb-0">
                     {items.slice(1, 2).map((item, index) => (
                       <div
-                        className={`${Styles.revealLeft} ${Styles.menuCard} flex flex-col md:flex-row gap-6 p-6 rounded-lg`}
+                        className={`${Styles.revealLeft} ${Styles.menuCard} flex flex-col md:flex-row gap-6 p-6`}
                         key={item.id}
-                        style={{ animationDelay: `${index * 100}ms` }}
                       >
                         <div
                           className={`${Styles.imageWrapper} md:w-2/5 shrink-0`}
                         >
                           <Image
                             src={item.image}
-                            alt={item.title}
+                            alt={tData(`${item.id}.title`)}
                             className={`${Styles.imageZoom} object-cover w-full h-full rounded`}
                             width={300}
                             height={300}
@@ -77,38 +79,23 @@ const MainPage = () => {
                               ₾{item.price.toFixed(2)}
                             </p>
                           </div>
-
                           <h3 className="text-[28px] sm:text-[32px] font-semibold">
-                            {item.title}
+                            {tData(`${item.id}.title`)}
                           </h3>
-
-                          <p
-                            className={`${Styles.descriptionText} text-base sm:text-lg text-gray-600 leading-relaxed`}
-                          >
-                            {item.description}
+                          <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                            {tData(`${item.id}.description`)}
                           </p>
-
-                          <span
-                            className={`${Styles.dividerLine} border-b-2 border-b-[#E32929]`}
-                          />
+                          <span className="border-b-2 border-b-[#E32929] w-20" />
                         </div>
                       </div>
                     ))}
                   </div>
 
+                  {/* Second Item Block (Right Aligned) */}
                   <div className="lg:w-[70%] lg:absolute lg:right-0 pt-10 pb-10 lg:pb-0 z-10">
-                    <div className="hidden lg:flex lg:absolute lg:-left-60 xl:-left-80 bottom-1/4 lg:col-span-2 lg:col-start-6 lg:row-start-1 items-start pt-60 justify-center z-10">
-                      <div className="p-4 text-center border-y border-[#C5A02E]/30">
-                        <span className="block font-sans text-[11px] tracking-[0.3em] uppercase text-[#1A1A1A]/60 mb-2">
-                          {t("curated")}
-                        </span>
-                        <div className="w-px h-12 bg-[#C5A02E] mx-auto mb-2" />
-                        <span className="italic text-[#C5A02E] text-xl">&</span>
-                      </div>
-                    </div>
                     {items.slice(2, 3).map((item) => (
                       <div
-                        className={`${Styles.revealRight} ${Styles.menuCard} flex flex-col md:flex-row gap-6 p-6 rounded-lg`}
+                        className={`${Styles.revealRight} ${Styles.menuCard} flex flex-col md:flex-row gap-6 p-6`}
                         key={item.id}
                       >
                         <div className="flex flex-col justify-center gap-4 md:w-3/5 md:order-1">
@@ -117,27 +104,20 @@ const MainPage = () => {
                               ₾{item.price.toFixed(2)}
                             </p>
                           </div>
-
                           <h3 className="text-[28px] sm:text-[32px] font-semibold">
-                            {item.title}
+                            {tData(`${item.id}.title`)}
                           </h3>
-
-                          <p
-                            className={`${Styles.descriptionText} text-base sm:text-lg text-gray-600 leading-relaxed`}
-                          >
-                            {item.description}
+                          <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                            {tData(`${item.id}.description`)}
                           </p>
-
-                          <span
-                            className={`${Styles.dividerLine} border-b-2 border-b-[#E32929]`}
-                          />
+                          <span className="border-b-2 border-b-[#E32929] w-20" />
                         </div>
                         <div
                           className={`${Styles.imageWrapper} md:w-2/5 shrink-0 md:order-2`}
                         >
                           <Image
                             src={item.image}
-                            alt={item.title}
+                            alt={tData(`${item.id}.title`)}
                             className={`${Styles.imageZoom} object-cover w-full h-full rounded`}
                             width={300}
                             height={300}
@@ -147,19 +127,19 @@ const MainPage = () => {
                     ))}
                   </div>
 
+                  {/* Third Item Block & Sidebar Description */}
                   <div className="lg:w-[70%] lg:pt-95 2xl:pt-110 ">
-                    {items.slice(0, 1).map((item, index) => (
+                    {items.slice(0, 1).map((item) => (
                       <div
-                        className={`${Styles.revealLeft} ${Styles.menuCard} flex flex-col md:flex-row gap-6 p-6 rounded-lg`}
+                        className={`${Styles.revealLeft} ${Styles.menuCard} flex flex-col md:flex-row gap-6 p-6`}
                         key={item.id}
-                        style={{ animationDelay: `${index * 100}ms` }}
                       >
                         <div
                           className={`${Styles.imageWrapper} md:w-2/5 shrink-0`}
                         >
                           <Image
                             src={item.image}
-                            alt={item.title}
+                            alt={tData(`${item.id}.title`)}
                             className={`${Styles.imageZoom} object-cover w-full h-full rounded`}
                             width={300}
                             height={300}
@@ -171,24 +151,18 @@ const MainPage = () => {
                               ₾{item.price.toFixed(2)}
                             </p>
                           </div>
-
                           <h3 className="text-[28px] sm:text-[32px] font-semibold">
-                            {item.title}
+                            {tData(`${item.id}.title`)}
                           </h3>
-
-                          <p
-                            className={`${Styles.descriptionText} text-base sm:text-lg text-gray-600 leading-relaxed`}
-                          >
-                            {item.description}
+                          <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                            {tData(`${item.id}.description`)}
                           </p>
-
-                          <span
-                            className={`${Styles.dividerLine} border-b-2 border-b-[#E32929]`}
-                          />
+                          <span className="border-b-2 border-b-[#E32929] w-20" />
                         </div>
                       </div>
                     ))}
-                    <div className="hidden lg:flex lg:col-span-4 lg:col-start-8 lg:row-start-1 pt-40 px-8">
+
+                    <div className="hidden lg:flex lg:col-span-4 lg:col-start-8 lg:row-start-1 pt-20 px-8">
                       <div className="space-y-6">
                         <p className="text-[#1A1A1A]/60 italic text-xl leading-relaxed border-l-2 border-[#C5A02E] pl-6">
                           {t("description_template", {

@@ -18,14 +18,6 @@
     "signature": "Signature",
     "description_template": "Our {category} are curated to evoke a sense of home, reimagined through modern technique and local sourcing.",
     "categories": {
-      "Pizzas": "Pizzas",
-      "Sides": "Sides",
-      "Coffees": "Hot Drinks",
-      "Drinks": "Cold Drinks",
-      "Desserts": "Desserts",
-      "Milkshakes": "Milkshakes"
-    },
-    "categories": {
       "all": "All",
       "Pizzas": "Pizzas",
       "Sides": "Sides",
@@ -82,5 +74,25 @@
     "hours": "Open Daily: 10:00 AM - 11:00 PM",
     "rights": "© 2024 Café. All Rights Reserved.",
     "sub_rights": "Gourmet Italian Cuisine"
+  },
+  "MenuData": {
+    "1": { "title": "Pizza Margherita", "description": "A timeless Italian classic featuring our hand-stretched dough topped with vibrant tomato sauce, fresh mozzarella, and aromatic basil leaves." },
+    "2": { "title": "Pizza Pepperoni", "description": "For the spice lovers—loaded with premium spicy pepperoni slices that crisp up in our stone oven over a bed of melted mozzarella." },
+    "3": { "title": "Veggie Pizza", "description": "A garden-fresh delight topped with a colorful medley of bell peppers, red onions, mushrooms, and olives for a satisfying, healthy crunch." },
+    "4": { "title": "Fries", "description": "Golden and crispy on the outside, fluffy on the inside. Our signature fries are lightly seasoned with sea salt for the perfect side." },
+    "5": { "title": "Mexican Potatoes", "description": "Rustic potato wedges tossed in a bold blend of Mexican spices, served with a zesty dipping sauce for an extra kick." },
+    "6": { "title": "Fries with Jalapeno", "description": "Our classic crispy fries elevated with a layer of melted cheese and spicy pickled jalapenos for a true flavor explosion." },
+    "7": { "title": "Espresso", "description": "A concentrated, bold shot of our premium roasted Arabica beans, delivering a rich crema and a powerful caffeine punch." },
+    "8": { "title": "Cappuccino", "description": "The perfect balance of intense espresso, velvety steamed milk, and a thick layer of silky foam, topped with a dusting of cocoa." },
+    "9": { "title": "Latte", "description": "A smooth and creamy favorite made with a double shot of espresso and plenty of steamed milk for a mellow, comforting drink." },
+    "10": { "title": "Ice Cream", "description": "Three generous scoops of premium artisanal ice cream. Choose from our seasonal flavors for a refreshing and sweet finish." },
+    "11": { "title": "Croissant", "description": "Buttery, flaky, and golden-brown. Our French-style croissants are baked fresh every morning to ensure maximum crispness." },
+    "12": { "title": "Chocolate Cookies", "description": "Chewy, home-style cookies packed with large chunks of premium dark chocolate and a hint of sea salt for balance." },
+    "13": { "title": "Oreo Milkshake", "description": "A thick and creamy blend of vanilla bean ice cream and crushed Oreo cookies, topped with whipped cream and more cookie crumbles." },
+    "14": { "title": "Strawberry Shake", "description": "Made with real farm-fresh strawberries and whole milk for a naturally sweet, nostalgic treat that’s both smooth and refreshing." },
+    "15": { "title": "Special Milkshake", "description": "Our chef's signature creation—a rotating gourmet recipe featuring unique toppings, house-made syrups, and premium garnishes." },
+    "16": { "title": "Coca-Cola", "description": "The world's favorite sparkling soft drink, served ice-cold in a glass with a slice of lemon for ultimate refreshment." },
+    "17": { "title": "Sprite", "description": "A crisp, clean, and lemon-lime flavored soda that is 100% caffeine-free and perfect for cutting through savory meals." },
+    "18": { "title": "Fanta", "description": "Bright, bubbly, and bursting with fruity orange flavor. A fun and refreshing choice that pairs perfectly with our crispy fries." }
   }
 }
