@@ -1,3 +1,10 @@
+import { Cormorant_Garamond } from "next/font/google";
+
+const CormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: "700",
+});
+
 const ContactPage = () => {
   const mapSrc =
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2977.5722535747695!2d44.765523876555804!3d41.72974817468865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x404473003cb939e3%3A0xa9ac883f91aca3f4!2z4YOe4YOY4YOq4YOU4YOg4YOY4YOQIOGDmuGDkCDhg5nhg6Dhg53hg6Hhg6Lhg5AgTGEgQ3Jvc3RhIFBpenplcmlh!5e0!3m2!1sen!2sge!4v1769379578684!5m2!1sen!2sge",
@@ -7,11 +14,12 @@ const ContactPage = () => {
     loading = "lazy",
     referrerpolicy = "no-referrer-when-downgrade";
 
+
   return (
     <div className="w-full px-5 sm:px-15 md:px-30 pt-40">
       <div className="gap-15 flex flex-col lg:flex-row w-full items-center">
         <div className="w-full lg:w-1/3 h-180">
-          <span className="font-semibold text-2xl">Visit Us</span>
+          <span className={`${CormorantGaramond.className} text-3xl`}>Visit Us</span>
           <iframe
             src={mapSrc}
             style={{ border: 0 }}
@@ -70,7 +78,7 @@ const ContactPage = () => {
             />
           </div>
 
-          <button className="w-full bg-[#d46868] text-white py-4 rounded-2xl text-xl font-semibold mt-2 shadow-sm active:scale-[0.98] transition-transform">
+          <button className="w-full bg-[#E32929]/80 text-white py-4 rounded-2xl text-xl font-semibold mt-2 shadow-sm active:scale-[0.98] transition-transform">
             Send
           </button>
         </div>

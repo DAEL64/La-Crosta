@@ -76,7 +76,7 @@ const BookTablePage = () => {
             />
           </div>
 
-          <button className="w-full bg-[#D6716F] hover:bg-[#A04501] text-white py-5 rounded-2xl text-xl font-semibold transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.99] mt-4 uppercase tracking-widest">
+          <button className="w-full bg-[#E32929]/80 hover:bg-[#E32929]/85 text-white py-5 rounded-2xl text-xl font-semibold transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.99] mt-4 uppercase tracking-widest">
             Confirm Reservation
           </button>
         </form>
