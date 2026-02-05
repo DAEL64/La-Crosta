@@ -28,8 +28,8 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={`lg:hidden absolute md:top-10 right-6 z-100 flex items-center gap-4 ${isOpen && "hidden"}`}>
-        <button onClick={toggleLanguage} className="text-white text-sm uppercase border border-white/20 px-2 py-1 rounded">
+      <div className="lg:hidden absolute top-5 md:top-10 right-6 z-100 flex items-center gap-4">
+        <button onClick={toggleLanguage} className={`text-white text-sm uppercase border border-white/20 px-2 py-1 rounded ${isOpen && "hidden"}`}>
           {locale === "en" ? "KA" : "EN"}
         </button>
         <button onClick={toggleSidebar} className="text-white p-2">
