@@ -56,6 +56,7 @@ const MainPage = () => {
               <div className="w-full px-5 sm:px-10 md:px-20 lg:px-32 mx-auto relative">
                 <div className="flex flex-col lg:block relative">
                   <div className="lg:w-[70%] mb-10 lg:mb-0">
+                    
                     {items.slice(1, 2).map((item, index) => (
                       <div
                         className={`${Styles.revealLeft} ${Styles.menuCard} flex flex-col md:flex-row gap-6 p-6`}
@@ -90,7 +91,8 @@ const MainPage = () => {
                     ))}
                   </div>
 
-                  {/* Second Item Block (Right Aligned) */}
+                  
+
                   <div className="lg:w-[70%] lg:absolute lg:right-0 pt-10 pb-10 lg:pb-0 z-10">
                     {items.slice(2, 3).map((item) => (
                       <div
